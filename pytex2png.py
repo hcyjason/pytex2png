@@ -1,10 +1,13 @@
 # imports
 import shlex, subprocess, sys
+import logging
 
+logger = logging.getLogger(__name__)
 # runs a command line command and waits for it to complete
 # by default it will not display any output
 def exe_command(cmd, display=False):
 	args = shlex.split(cmd)
+	logger.debug("exe_command args: " + str(args))
 	if(display):
 		p = subprocess.Popen(args)
 	else:
